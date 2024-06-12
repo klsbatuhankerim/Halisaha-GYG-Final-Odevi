@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Kullanıcı Kayıt Formu</title>
+    <style>
+        body {
+            background-image: url('halisaha.jpg'); /* Halısaha fotoğrafının dosya adını buraya ekleyin */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: Arial, sans-serif;
+            color: #fff;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            background-color: rgba(0, 0, 0, 0.7); /* Formun arka planını biraz şeffaf yaparak okunabilirliği artırın */
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            margin: auto;
+            margin-top: 100px;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 20px 0;
+            border: none;
+            border-radius: 5px;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        h2 {
+            margin-top: 0;
+        }
+    </style>
+    <script>
+        let timeout;
+
+        function resetTimeout() {
+            clearTimeout(timeout);
+            timeout = setTimeout(function() {
+                window.location.href = 'index.html'; 
+            }, 10000); // 10 saniye (10,000 milisaniye)
+        }
+
+        document.addEventListener('mousemove', resetTimeout);
+        document.addEventListener('keypress', resetTimeout);
+        document.addEventListener('scroll', resetTimeout);
+        document.addEventListener('click', resetTimeout);
+
+        window.onload = resetTimeout;
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2>Kullanıcı Kayıt Formu</h2>
+        <form action="register.php" method="post">
+            <label for="ad">Ad:</label><br>
+            <input type="text" id="ad" name="ad" required><br>
+            <label for="soyad">Soyad:</label><br>
+            <input type="text" id="soyad" name="soyad" required><br>
+            <label for="yas">Yaş:</label><br>
+            <input type="number" id="yas" name="yas" required><br>
+            <label for="mevki">Mevki:</label><br>
+            <select id="mevki" name="mevki" required>
+                <option value="" disabled selected>Mevki seç</option>
+                <option value="kaleci">Kaleci</option>
+                <option value="defans">Defans</option>
+                <option value="ortasaha">Orta Saha</option>
+                <option value="forvet">Forvet</option>
+            </select><br>
+            <label for="telefon">Telefon:</label><br>
+            <input type="tel" id="telefon" name="telefon" placeholder="0(000) 000 00 00"><br><br>
+            <input type="submit" value="Kaydol">
+        </form>
+    </div>
+</body>
+</html>

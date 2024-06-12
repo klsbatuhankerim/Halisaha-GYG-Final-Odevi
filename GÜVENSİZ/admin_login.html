@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Giriş</title>
+    <style>
+        body {
+            background-image: url('halisaha.jpg'); /* Halısaha fotoğrafının dosya adını buraya ekleyin */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.8); /* Formun arka planını biraz şeffaf yaparak okunabilirliği artırın */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Hafif gölge efekti */
+            width: 300px;
+            text-align: center;
+        }
+        h2 {
+            margin-top: 0;
+            color: #333; /* Başlık rengini değiştirin */
+        }
+        input {
+            width: calc(100% - 22px); /* Genişliği kutuya göre ayarlayın */
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50; /* Buton rengini değiştirin */
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049; /* Buton üzerine gelindiğinde renk değişimi */
+        }
+    </style>
+    <script>
+        let timeout;
+
+        function resetTimeout() {
+            clearTimeout(timeout);
+            timeout = setTimeout(function() {
+                window.location.href = 'index.html'; 
+            }, 10000); // 10 saniye (10,000 milisaniye)
+        }
+
+        document.addEventListener('mousemove', resetTimeout);
+        document.addEventListener('keypress', resetTimeout);
+        document.addEventListener('scroll', resetTimeout);
+        document.addEventListener('click', resetTimeout);
+
+        window.onload = resetTimeout;
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2>Admin Giriş</h2>
+        <form action="admin_login.php" method="post">
+            <label for="username">Kullanıcı Adı:</label><br>
+            <input type="text" id="username" name="username" required><br>
+            <label for="password">Şifre:</label><br>
+            <input type="password" id="password" name="password" required><br><br>
+            <input type="submit" value="Giriş Yap">
+        </form>
+    </div>
+</body>
+</html>
